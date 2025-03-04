@@ -1,16 +1,55 @@
-#ifndef calculadora_h
-#define calculadora_h 1
+#include <stdio.h>
+#include <stdlib.h>
 
-typedef struct calculadora Calculadora;
+#include "Calculadora.h"
 
-calculadora* calculadora_cria(float x, float y);
-void calculadora_exibe(calculadora *c);
-void calculadora_zera(calculadora *c);
-void calculadora_destroi(Ponto *p);
-void calculadora_soma(Calculadora *c, float x, float y);
-void calculadora_subtrai(Calculadora *c, float x, float y);
-void calculadora_multiplica(Calculadora *c,float x, float y);
-void calculadora_divide(Calculadora *c, float x, float y);
+struct calculadora {
+    float memoria;
+};
 
-#endif
-	
+Calculadora* criar() {
+    Calculadora *c = (Calculadora *) malloc(sizeof(Calculadora));
+    if (c != NULL) {
+        c->memoria = 0;
+    }
+    return c;
+}
+
+void destruir(Calculadora *c) {
+    free(c);
+}
+
+
+void exibir(Calculadora* c) {
+    if(!c) return;
+    printf("Memoria: %f\n", c->memoria);
+}
+
+void zerar(Calculadora* c) {
+    if(!c) return;
+    c->memoria = 0;
+}
+
+void somar(Calculadora* c, int valor) {
+    if(!c) return;
+    c->memoria += valor;
+}
+
+void subtrair(Calculadora* c, int valor) {
+    if(!c) return;
+    c->memoria -= valor;
+}
+
+void multiplicar(Calculadora* c, int valor) {
+    if(!c) return;
+    c->memoria *= valor;
+}
+
+void dividir(Calculadora* c, int valor) {
+    if(!c) return;
+    if(valor == 0) {
+        printf("Divisão ilegal por zero\n");
+        return;
+    }
+    c->memoria /= valor;
+}
