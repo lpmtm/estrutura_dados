@@ -1,69 +1,15 @@
-//CALCULADORA.H
-#include <stdlib.h>
-#include <math.h>
+#ifndef CALCULADORA_H
+#define CALCULADORA_H 1
 
-#include "calculadora.h" // inclui os protótipos
+typedef struct calculadora Calculadora;
 
-struct calculadora {
-    float x;
-    float y;
-};
+Calculadora* criar();
+void destruir(Calculadora* c);
+void exibir(Calculadora* c);
+void zerar(Calculadora* c);
+void somar(Calculadora* c, int valor);
+void subtrair(Calculadora* c, int valor);
+void multiplicar(Calculadora* c, int valor);
+void dividir(Calculadora* c, int valor);
 
-// cria
-calculadora* calculadora_cria(float x, float y) {
-    calculadora *c = (calculadora *) malloc(sizeof(calculadora));
-    if (c != NULL) {
-        c->x = x;
-        c->y = y;
-    }
-    return c;
-}
-// destroi
-void calculadora_exibe(Calculadora *c) {
-  free(c);
-}
-
-// exibe
-void calculadora_exibe(Calculadora *c, float *x, float *y) {
-    if(!c) return 0;
-    *x = p->x;
-    *y = p->y;
-    return 1;
-}
-
-// soma
-void calculadora_soma(Calculadora *c, float x, float y){
-	id(c1 == NULL || c2 == NULL);
-	return 0;
-	float cx = c1 ->x + c2->x;
-	float cy= c1  ->y +c2->y;
-	return sqrt(cx + cy);
-}
-
-//subitrai
-void calculadora_subtrai(Calculadora *c, float x, float y){
-	id(c1 == NULL || c2 == NULL);
-	return 0;
-	float cx = c1 ->x - c2->x;
-	float cy= c1  ->y -c2->y;
-	return sqrt(cx - cy);
-	
-}
-
-//multiplica
-void calculadora_multiplica(Calculadora *c,float x, float y){
-	id(c1 == NULL || c2 == NULL);
-	return 0;
-	float cx = c1 ->x * c2->x;
-	float cy= c1  ->y * c2->y;
-	return sqrt(cx * cy);	
-}
-
-//divide
-void calculadora_divide(Calculadora *c, float x, float y){
-	id(c1 == NULL || c2 == NULL);
-	return 0;
-	float cx = c1 ->x / c2->x;
-	float cy= c1  ->y / c2->y;
-	return sqrt(cx / cy);
-}
+#endif // CALCULADORA_H
