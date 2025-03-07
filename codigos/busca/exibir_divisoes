@@ -1,0 +1,50 @@
+#include <stdio.h>
+
+void atualizar(int vetor[], int tamanho, int valor_busca, int novo_valor) {
+    int inicio = 0, fim = tamanho - 1, meio;
+    int ultima_posicao = -1;
+    int divisoes;
+
+    while (inicio <= fim) {
+        meio = (inicio + fim) / 2;
+        divisoes ++;
+        if (vetor[meio] == valor_busca) {
+            ultima_posicao = meio;
+            inicio = meio + 1; // Continua buscando à direita para encontrar a última ocorrência
+        } else if (vetor[meio] < valor_busca) {
+            inicio = meio + 1;
+        } else {
+            fim = meio - 1;
+        }
+    }
+
+    if (ultima_posicao != -1) {
+        vetor[ultima_posicao] = novo_valor;
+        printf("O valor %d foi atualizado para %d na posicao %d.\n", valor_busca, novo_valor, ultima_posicao);
+    } else {
+        printf("O valor %d nao foi encontrado no vetor.\n", valor_busca);
+    }
+
+    printf("O numero de divisoes foi: %d\n", divisoes);
+}
+
+int main() {
+    int vetor[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 5};
+    int valor_busca, novo_valor;
+
+    printf("Digite o valor a ser buscado: ");
+    scanf("%d", &valor_busca);
+
+    printf("Digite o novo valor para substituicao: ");
+    scanf("%d", &novo_valor);
+
+    atualizar(vetor, 10, valor_busca, novo_valor);
+
+    printf("Vetor atualizado: ");
+    for (int i = 0; i < 10; i++) {
+        printf("%d ", vetor[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
