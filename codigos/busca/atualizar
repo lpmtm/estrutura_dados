@@ -34,7 +34,7 @@ int main() {
     printf("Digite o novo valor para substituicao: ");
     scanf("%d", &novo_valor);
 
-    atualizarUltimaOcorrencia(vetor, 10, valor_busca, novo_valor);
+    atualizar(vetor, 10, valor_busca, novo_valor);
 
     printf("Vetor atualizado: ");
     for (int i = 0; i < 10; i++) {
