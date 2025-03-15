@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+void bubblesort(int n, int arr[n]){
+	int comparacoes, trocas;
+	for(int i=0; i <n-1; i++){
+		for(int j = 0; j < n-1-i; j++){
+			if(arr[j] > arr[j+1]){
+			comparacoes ++;
+			int aux = arr[j];
+			arr[j] = arr[j+1];
+			arr[j+1] = aux;
+			}
+		}
+	}
+}
+
+void exibir_vetor(int n, int vet[n]){
+	int comparacoes, trocas;
+	for(int i = 0; i < n; i++){
+	printf("[%d]", vet[i]);
+	trocas ++;
+	}
+	printf("\n");
+	printf("o numero de comparacoes foi: %d\n", comparacoes);
+	printf("o numero de trocas foi: %d\n", trocas);
+}
+
+int main(){
+	int vet[10] = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+	bubblesort(10, vet);
+	exibir_vetor(10, vet);
+return 0;
+}
