@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+void insertion_sort_asc(int arr[], int n) {
+	int comparacoes = 0, trocas = 0;
+	for (int i = n - 2; i >= 0; i--) {
+		int key = arr[i];
+		int j = i + 1;
+		comparacoes ++;
+		while (j < n && arr[j] < key) {
+			
+			arr[j - 1] = arr[j];
+			j++;
+		}
+		arr[j - 1] = key;
+		trocas ++;
+	}
+	printf("o numero de comparacoes foi: %d\n", comparacoes);
+	printf("o numero de trocas foi: %d\n", trocas);	
+}
+
+int main() {
+	int lista[10] = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+	int n = sizeof(lista) / sizeof(lista[0]);
+	insertion_sort_asc(lista, n);
+	printf("Lista ordenada: ");
+	
+	for (int i = 0; i < n; i++) {
+		printf("%d ", lista[i]);
+	}
+	printf("\n");
+	return 0;
+}
