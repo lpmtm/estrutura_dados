@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+void selection_sort_desc(int arr[], int n) {
+	int comparacoes = 0, trocas = 0;
+	
+	for (int i = 0; i < n - 1; i++) {
+		int min_idx = i;
+		for (int j = i + 1; j < n; j++) {
+			comparacoes ++;
+			if (arr[j] < arr[min_idx]) {
+				min_idx = j;
+			}
+		} 
+		if(min_idx !=i){
+		int temp = arr[i];
+		arr[i] = arr[min_idx];
+		arr[min_idx] = temp;
+		trocas ++;
+		}
+	}
+	printf("o numero de comparacoes foi: %d\n", comparacoes);
+	printf("o numero de trocas foi: %d\n", trocas);
+}
+ 
+int main() {
+	int lista[10] = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};	
+	int n = sizeof(lista) / sizeof(lista[0]);
+	selection_sort_desc(lista, n);
+	
+	printf("Lista ordenada: ");
+	for (int i = 0; i < n; i++) {
+		printf("[%d] ", lista[i]);
+	}
+	printf("\n");
+	return 0;
+}
