@@ -20,6 +20,12 @@ No *criar_no{
 
 int main(){
   No *raiz = criar_no(1);
+  raiz->esq= criar_no(2);
+    raiz->esq->esq= criar_no(4);
+    raiz->esq->dir= criar_no(5);
+  raiz->dir= criar_no(6);
+    raiz->dir->esq= criar_no(7);
+    raiz->dir->dir= criar_no(8);
   
   return 0;
 }
