@@ -21,9 +21,11 @@ No *criar_no(int valor) {
 
 void exibir(No *no) {
     if (no) {
-        printf("(%d)", no->dado);
+        //printf("(%d)", no->dado); //pre-ordem
         exibir(no->esq);
-        exibir(no->dir);
+        printf("(%d)", no->dado); //em ordem
+        exibir(no->dir); 
+        //printf("(%d)", no->dado); //pos-ordem
     }
 }
 
